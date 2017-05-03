@@ -57,10 +57,12 @@ export default {
       }
       setTimeout(() => {
         document.addEventListener('click', this._handleClickOutSide)
+        document.addEventListener('touchstart', this._handleClickOutSide)
       }, 0)
     },
     unBindClickOutSide () {
       document.removeEventListener('click', this._handleClickOutSide)
+      document.removeEventListener('touchstart', this._handleClickOutSide)
     },
     resetZIndex () {
       this.overlayZIndex = getZIndex()
