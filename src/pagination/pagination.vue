@@ -181,11 +181,11 @@ export default{
     total: function (val) {
       // 如果条目总数改变的时候当前页也需要重新计算
       let oldCurrent = this.actualCurrent
-      this.actualCurrent = Math.min(this.totalPageCount, this.actualCurrent)
       // 总条数改变的时候当前页不一定改变,但是我们必须重新计算一些依赖的参数,
       // 比如total从10变为11(pageSize=10),那么current没变,不过右前进的按钮应该由
       // disable变为enable的
       this.totalPageCount = Math.ceil(this.total / this.actualPageSize)
+      this.actualCurrent = Math.min(this.totalPageCount, this.actualCurrent)
       if (oldCurrent === this.actualCurrent) {
         this.pageSizeAndTotalChange(oldCurrent)
       }
