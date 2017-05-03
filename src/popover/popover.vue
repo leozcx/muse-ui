@@ -95,8 +95,11 @@ export default {
         top: anchor[anchorOrigin.vertical] - target[targetOrigin.vertical],
         left: anchor[anchorOrigin.horizontal] - target[targetOrigin.horizontal]
       }
+      //Fixme in older browser, anchor.left is set to value < 0 for some reason (don't know why), so simply disable this
+      // if (anchor.top < 0 || anchor.top > window.innerHeight ||
+      //    anchor.left < 0 || anchor.left > window.innerWidth) {
       if (anchor.top < 0 || anchor.top > window.innerHeight ||
-          anchor.left < 0 || anchor.left > window.innerWidth) {
+          anchor.left > window.innerWidth) {
         this.close('overflow')
         return
       }
