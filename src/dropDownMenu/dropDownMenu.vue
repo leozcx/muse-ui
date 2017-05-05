@@ -7,7 +7,7 @@
     <div class="mu-dropDown-menu-text-overflow">{{label}}</div>
   </div>
   <div class="mu-dropDown-menu-line" :class="underlineClass"></div>
-  <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :scroller="scroller" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
+  <popover v-if="!disabled && $slots && $slots.default && $slots.default.length > 0" :autoPosition="autoPosition" :scroller="scroller" :open="openMenu" :trigger="trigger" :anchorOrigin="anchorOrigin"  @close="handleClose">
     <mu-menu :style="{width: menuWidth + 'px'}" @change="change"
       :class="menuClass" :listClass="menuListClass" :value="value" :multiple="multiple"
       :autoWidth="autoWidth" @itemClick="itemClick"
@@ -30,6 +30,10 @@ export default {
     value: {},
     maxHeight: {
       type: Number
+    },
+    autoPosition: {
+      type: Boolean,
+      default: true
     },
     autoWidth: {
       type: Boolean,
